@@ -1,11 +1,7 @@
 from fastapi import FastAPI 
+from app.api.routes.health import router
 
 app = FastAPI()
 
-@app.get("/health")
-def fnc():
-    return {
-        "status": "ok",
-        "service": "inventory"
-    }
+app.include_router(router)
 
