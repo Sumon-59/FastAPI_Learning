@@ -3,7 +3,7 @@ it contains items schemas
 purpose:request/response validatiion
 """
 from typing import Optional
-from pydantic import BaseModel,Field
+from pydantic import BaseModel,Field, ConfigDict
 
 #----------------------------------------------------
 # Data models
@@ -19,6 +19,7 @@ class ItemCreate(BaseModel):
 
 #ItemRead: API Response Scheme
 class ItemRead(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
     id: int
     name: str
     price: float
